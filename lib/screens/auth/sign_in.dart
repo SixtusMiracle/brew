@@ -35,7 +35,7 @@ class _SignInState extends State<SignIn> {
             } else {
               print('Signed in!');
               print(result);
-              print({'uid': result.uid});
+              print(result.uid);
             }
           },
         ),
