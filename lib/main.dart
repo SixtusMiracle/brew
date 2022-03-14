@@ -1,3 +1,4 @@
+import 'package:brew/screens/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -19,31 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Brew',
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.home),
-          backgroundColor: Colors.blueAccent,
-          elevation: 0,
-          title: Text('Mirolic'),
-          centerTitle: true,
-        ),
-        backgroundColor: Colors.blueGrey,
-        body: Center(
-          child: Text(
-            'Miralo',
-            style: TextStyle(
-              fontSize: 60.0,
-              letterSpacing: 1.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+      home: Wrapper(),
     );
   }
 }
