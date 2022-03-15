@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../../services/auth.dart';
 import '../../util/constants.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   final Function toggleView;
 
-  const SignIn({Key? key, required this.toggleView}) : super(key: key);
+  const Register({Key? key, required this.toggleView}) : super(key: key);
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
 
   // text field states
@@ -26,14 +26,14 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0,
-        title: Text('Sign in to Brew'),
+        title: Text('Sign up to Brew'),
         actions: [
           TextButton.icon(
             onPressed: () {
               widget.toggleView();
             },
             icon: Icon(Icons.person),
-            label: Text('Register'),
+            label: Text('Sign in'),
             style: TextButton.styleFrom(primary: Colors.black),
           ),
         ],
@@ -63,7 +63,7 @@ class _SignInState extends State<SignIn> {
                 onPressed: () async {
                   print({email, password});
                 },
-                child: Text('Sign in'),
+                child: Text('Register'),
               ),
             ],
           ),
