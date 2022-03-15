@@ -14,10 +14,12 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   // text field states
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +46,28 @@ class _RegisterState extends State<Register> {
           horizontal: 50.0,
         ),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               SizedBox(height: 20.0),
+              Text(
+                error,
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 14.0,
+                ),
+              ),
+              SizedBox(height: 12.0),
               TextFormField(
+                validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                 decoration:
                     textInputDecoration.copyWith(hintText: 'Email address'),
                 onChanged: (val) => {setState(() => email = val)},
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                validator: (val) =>
+                    val!.length < 6 ? 'Enter a password 6+ chars long' : null,
                 decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 obscureText: true,
                 onChanged: (val) => {setState(() => password = val)},
@@ -61,7 +75,13 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () async {
-                  print({email, password});
+                  if (_formKey.currentState!.validate()) {
+                    dynamic result = await _auth.registerWithEmailAndPassword(
+                        email, password);
+                    if (result == null) {
+                      setState(() => error = 'please supply a valid email');
+                    }
+                  }
                 },
                 child: Text('Register'),
               ),
