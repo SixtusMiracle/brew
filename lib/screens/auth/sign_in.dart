@@ -66,7 +66,12 @@ class _SignInState extends State<SignIn> {
                       validator: (val) =>
                           val!.isEmpty ? 'Enter an email' : null,
                       decoration: textInputDecoration.copyWith(
-                          hintText: 'Email address'),
+                        hintText: 'Enter your email address',
+                        label: Text(
+                          'Email address',
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                      ),
                       onChanged: (val) => {setState(() => email = val)},
                     ),
                     SizedBox(height: 20.0),
@@ -74,8 +79,13 @@ class _SignInState extends State<SignIn> {
                       validator: (val) => val!.length < 6
                           ? 'Enter a password 6+ chars long'
                           : null,
-                      decoration:
-                          textInputDecoration.copyWith(hintText: 'Password'),
+                      decoration: textInputDecoration.copyWith(
+                        hintText: 'Enter your password',
+                        label: Text(
+                          'Password',
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                      ),
                       obscureText: true,
                       onChanged: (val) => {setState(() => password = val)},
                     ),
