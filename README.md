@@ -28,7 +28,10 @@ flutter run
 
 ## About the Author
 
-Created by Sixtus Miracle.
+Created by [Sixtus Miracle](https://github.com/sixtusmiracle)
+
+## Credits
+Many thanks to [iamshaunjp](https://github.com/iamshaunjp)
 
 ## Donate
 
