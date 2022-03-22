@@ -1,4 +1,4 @@
-package com.example.brew
+package com.mirolic.brew
 
 import io.flutter.embedding.android.FlutterActivity
 
