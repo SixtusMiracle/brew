@@ -99,7 +99,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         await DatabaseService(uid: user.uid).updateUserData(
-                          _currentSugars == '0'
+                          _currentSugars.isEmpty
                               ? userData.sugars
                               : _currentSugars,
                           _currentName == '' ? userData.name : _currentName,
