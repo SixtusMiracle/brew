@@ -17,11 +17,16 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     void _showSettingsPanel() {
       showModalBottomSheet(
+          isScrollControlled: true,
           context: context,
           builder: (context) {
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 20.0),
-              child: SettingsForm(),
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
+                child: SingleChildScrollView(child: SettingsForm()),
+              ),
             );
           });
     }
@@ -40,7 +45,7 @@ class Home extends StatelessWidget {
               onPressed: () async {
                 await _auth.signOut();
               },
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.logout_rounded),
               label: Text('logout'),
               style: TextButton.styleFrom(
                 primary: Colors.black,
