@@ -34,4 +34,5 @@ Many thanks to [iamshaunjp](https://github.com/iamshaunjp)
 
 ## Donate
 
-You can support me via [PayPal](https://paypal.me/mirolicmiralo)
+You can support me via [Barter](https://barter.me/sixtusagbo)
+
